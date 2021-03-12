@@ -8,7 +8,7 @@ Tabnet takes a different approach to this.
 
 Get a handy set of keyboard shortcuts that lets you tame your tabs.
 
-### [Alt+Shift+G] Arrange all tabs
+### [Alt+Shift+G] Arrange all tabs by domain
 
 Arranges all open tabs by their hostname
 and auto renames the tab group accordingly.
