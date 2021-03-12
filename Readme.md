@@ -1,6 +1,6 @@
 # TabNeT
 
-## works on Chrome 89 +
+## works on Chrome 89 +  Microsoft edge dev / beta and canary + Chromium latest builds
 
 Get back your tab sanity on chrome..
 We have all been there, too many disorganised tabs.
