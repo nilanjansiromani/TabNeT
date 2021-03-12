@@ -1,13 +1,5 @@
-{
-  "name": "TabNeT",
-  "version": "3.0",
-  "description": "Creates a keyboard shortcut (Alt + Shift + G) to add tab to a group",
-  "background": {
-    "service_worker": "background.js"
-  },
-  "permissions": ["tabs", "tabGroups"],
-  "commands": {
-    "toggle-pin": {
+```
+"toggle-pin": {
       "suggested_key": { "default": "Alt+Shift+G" },
       "description": "Add tab to a group"
     },
@@ -19,6 +11,4 @@
       "suggested_key": { "default": "Alt+Shift+P" },
       "description": "Pin unpin current tab"
     }
-  },
-  "manifest_version": 3
-}
+```
