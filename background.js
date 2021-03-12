@@ -1,6 +1,5 @@
 chrome.commands.onCommand.addListener(function (command) {
-  if (command == "toggle-pin") {
-    // Get the currently selected tab
+  if (command == "addtogroup") {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       var currentTab = tabs[0];
       chrome.tabs.group(
@@ -18,10 +17,11 @@ chrome.commands.onCommand.addListener(function (command) {
       const uniqueTabHosts = {};
       list.forEach((tab) => {
         const url = new URL(tab.url);
-        if (!uniqueTabHosts[url.hostname]) {
-          uniqueTabHosts[url.hostname] = [];
+        const sitename = url.hostname.split(".").slice(-2)[0];
+        if (!uniqueTabHosts[sitename]) {
+          uniqueTabHosts[sitename] = [];
         }
-        uniqueTabHosts[url.hostname].push(tab.id);
+        uniqueTabHosts[sitename].push(tab.id);
       });
       for (const tabGroup in uniqueTabHosts) {
         chrome.tabs.group(
@@ -35,10 +35,16 @@ chrome.commands.onCommand.addListener(function (command) {
       }
     });
   }
-  if (command == "pin-tab") {
+  if (command == "pintab") {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       var current = tabs[0];
       chrome.tabs.update(current.id, { pinned: !current.pinned });
+    });
+  }
+  if (command == "discard") {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      var current = tabs[0];
+      chrome.tabs.discard(current.id, () => console.log("Tab discarded"));
     });
   }
 });

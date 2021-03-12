@@ -7,17 +7,21 @@
   },
   "permissions": ["tabs", "tabGroups"],
   "commands": {
-    "toggle-pin": {
-      "suggested_key": { "default": "Alt+Shift+G" },
+    "addtogroup": {
+      "suggested_key": { "default": "Alt+Shift+K" },
       "description": "Add tab to a group"
     },
     "arrange-all": {
       "suggested_key": { "default": "Alt+Shift+L" },
       "description": "Arrange all tabs"
     },
-    "pin-tab": {
-      "suggested_key": { "default": "Alt+Shift+P" },
+    "pintab": {
+      "suggested_key": { "default": "Alt+Shift+J" },
       "description": "Pin unpin current tab"
+    },
+    "discard": {
+      "suggested_key": { "default": "Alt+Shift+X" },
+      "description": "Discard tab from memory"
     }
   },
   "manifest_version": 3
