@@ -1,7 +1,7 @@
 {
   "name": "TabNeT",
   "version": "3.0",
-  "description": "Creates a keyboard shortcut (Alt + Shift + G) to add tab to a group",
+  "description": "Handy keyboard shortcuts",
   "background": {
     "service_worker": "background.js"
   },

@@ -45,6 +45,7 @@ chrome.commands.onCommand.addListener(function (command) {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       var current = tabs[0];
       chrome.tabs.discard(current.id, () => console.log("Tab discarded"));
+      alert("Page has been hibernated");
     });
   }
 });
