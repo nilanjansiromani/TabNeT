@@ -29,7 +29,10 @@ chrome.commands.onCommand.addListener(function (command) {
             tabIds: uniqueTabHosts[tabGroup],
           },
           (tabGroupId) => {
-            chrome.tabGroups.update(tabGroupId, { title: tabGroup });
+            chrome.tabGroups.update(tabGroupId, {
+              collapsed: true,
+              title: tabGroup,
+            });
           }
         );
       }
