@@ -35,4 +35,10 @@ chrome.commands.onCommand.addListener(function (command) {
       }
     });
   }
+  if (command == "pin-tab") {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      var current = tabs[0];
+      chrome.tabs.update(current.id, { pinned: !current.pinned });
+    });
+  }
 });
