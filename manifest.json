@@ -1,7 +1,7 @@
 {
   "name": "TabNeT",
-  "version": "3.0",
-  "description": "Handy keyboard shortcuts",
+  "version": "3.1",
+  "description": "tab Organiser",
   "background": {
     "service_worker": "background.js"
   },

@@ -55,7 +55,7 @@ chrome.commands.onCommand.addListener(function (command) {
                 tabIds: tabId,
                 groupId: groupid[0].id,
               },
-              () => {}
+              () => { }
             );
           } else {
             chrome.tabs.group(
