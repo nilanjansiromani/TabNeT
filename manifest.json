@@ -1,7 +1,7 @@
 {
   "name": "TabNeT",
   "version": "3.1",
-  "description": "tab Organiser",
+  "description": "Oragnise your tabs by domains, pin them, hibernate them !",
   "background": {
     "service_worker": "background.js"
   },
