@@ -1,3 +1,5 @@
+const uniqueTabHosts = {};
+
 const getDomainName = (url) => {
   url = new URL(url);
   let domainName = url.hostname.split(".").slice(-2)[0];
@@ -7,9 +9,7 @@ const getDomainName = (url) => {
   return domainName;
 };
 
-const uniqueTabHosts = {};
-
-const autoArrangeTabsByDomain = (list) => {
+const arranger = (list) => {
   list.forEach((tab) => {
     const domainName = getDomainName(tab.url);
     if (!uniqueTabHosts[domainName]) {
@@ -23,10 +23,14 @@ const autoArrangeTabsByDomain = (list) => {
         tabIds: uniqueTabHosts[tabGroup],
       },
       (tabGroupId) => {
-        chrome.tabGroups.update(tabGroupId, {
-          collapsed: true,
-          title: tabGroup,
-        });
+        chrome.tabGroups.update(
+          tabGroupId,
+          {
+            collapsed: true,
+            title: tabGroup,
+          },
+          (data) => console.log(data)
+        );
       }
     );
   }
@@ -35,14 +39,16 @@ const autoArrangeTabsByDomain = (list) => {
 chrome.commands.onCommand.addListener(function (command) {
   if (command == "autoArrangeTabs") {
     chrome.tabs.query({}, (list) => {
-      autoArrangeTabsByDomain(list);
+      arranger(list);
     });
     chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-      console.log(tabId);
-      console.log(changeInfo);
-      console.log;
       if (tab.status === "complete") {
-        console.table(uniqueTabHosts);
+        const newDomain = getDomainName(tab.url);
+        if (uniqueTabHosts[newDomain]) {
+          console.log("there is a tab of this domain open and grouped");
+        } else {
+          console.log("This is a new domain tht you have opened just now");
+        }
       }
     });
   }
