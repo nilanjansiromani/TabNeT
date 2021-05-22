@@ -10,21 +10,9 @@
   },
   "permissions": ["tabs", "tabGroups"],
   "commands": {
-    "addtogroup": {
-      "suggested_key": { "default": "Alt+Shift+K" },
-      "description": "Add tab to a group"
-    },
-    "arrange-all": {
+    "autoArrangeTabs": {
       "suggested_key": { "default": "Alt+Shift+L" },
-      "description": "Arrange all tabs"
-    },
-    "pintab": {
-      "suggested_key": { "default": "Alt+Shift+J" },
-      "description": "Pin unpin current tab"
-    },
-    "discard": {
-      "suggested_key": { "default": "Alt+Shift+X" },
-      "description": "Discard tab from memory"
+      "description": "Auto arrange all ope tabs by their hostname"
     }
   },
   "manifest_version": 3
