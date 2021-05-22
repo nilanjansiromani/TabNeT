@@ -1,7 +1,7 @@
 {
   "name": "TabNeT",
-  "version": "3.1",
-  "description": "Oragnise your tabs by domains, pin them, hibernate them !",
+  "version": "4.0",
+  "description": "Oragnise your tabs by domains as you open them",
   "background": {
     "service_worker": "background.js"
   },
@@ -11,7 +11,7 @@
   "permissions": ["tabs", "tabGroups"],
   "commands": {
     "autoArrangeTabs": {
-      "suggested_key": { "default": "Alt+Shift+L" },
+      "suggested_key": { "default": "Alt+Shift+T" },
       "description": "Auto arrange all ope tabs by their hostname"
     }
   },
