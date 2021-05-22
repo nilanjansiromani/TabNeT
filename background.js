@@ -1,13 +1,17 @@
+const getDomainName = (url) => {
+  url = new URL(tab.url);
+  let sitename = url.hostname.split(".").slice(-2)[0];
+  if (sitename === "walmart") {
+    sitename = url.hostname.split(".").slice(-3)[0];
+  }
+  return sitename;
+};
+
 chrome.commands.onCommand.addListener(function (command) {
   if (command == "autoArrangeTabs") {
     chrome.tabs.query({}, (list) => {
       const uniqueTabHosts = {};
       list.forEach((tab) => {
-        const url = new URL(tab.url);
-        let sitename = url.hostname.split(".").slice(-2)[0];
-        if (sitename === "walmart") {
-          sitename = url.hostname.split(".").slice(-3)[0];
-        }
         if (!uniqueTabHosts[sitename]) {
           uniqueTabHosts[sitename] = [];
         }
@@ -29,35 +33,7 @@ chrome.commands.onCommand.addListener(function (command) {
     });
     chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
       if (tab.status === "complete") {
-        const url = new URL(tab.url);
-        let groupName = url.hostname.split(".").slice(-2)[0];
-        // have a special case for walmart ones.
-        if (groupName === "walmart") {
-          groupName = url.hostname.split(".").slice(-3)[0];
-        }
-        chrome.tabGroups.query({ title: groupName }, (groupid) => {
-          if (groupid.length) {
-            chrome.tabs.group(
-              {
-                tabIds: tabId,
-                groupId: groupid[0].id,
-              },
-              () => { }
-            );
-          } else {
-            chrome.tabs.group(
-              {
-                tabIds: tabId,
-              },
-              (tabGroupId) => {
-                chrome.tabGroups.update(tabGroupId, {
-                  collapsed: false,
-                  title: groupName,
-                });
-              }
-            );
-          }
-        });
+        console.log("The tab has been loaded");
       }
     });
   }
