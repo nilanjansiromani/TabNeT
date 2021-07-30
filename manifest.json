@@ -8,8 +8,28 @@
   "permissions": ["tabs", "tabGroups"],
   "commands": {
     "toggle-pin": {
-      "suggested_key": { "default": "Ctrl+Shift+P" },
-      "description": "Pin the current tab"
+      "description": "Pin the current tab",
+      "suggested_key": {
+        "windows": "Ctrl+Shift+P",
+        "mac": "Ctrl+Shift+P",
+        "linux": "Ctrl+Shift+P"
+      }
+    },
+    "discard": {
+      "description": "Discard the current tab",
+      "suggested_key": {
+        "windows": "Ctrl+Shift+D",
+        "mac": "Ctrl+Shift+D",
+        "linux": "Ctrl+Shift+D"
+      }
+    },
+    "addtogroup": {
+      "description": "Create a tab group from the current tab",
+      "suggested_key": {
+        "windows": "Ctrl+Shift+G",
+        "mac": "Ctrl+Shift+G",
+        "linux": "Ctrl+Shift+G"
+      }
     }
   },
   "manifest_version": 3
