@@ -1,18 +1,15 @@
 {
   "name": "TabNeT",
-  "version": "4.0",
-  "description": "Oragnise your tabs by domains as you open them",
+  "version": "5.0",
+  "description": "Handy Shortcuts",
   "background": {
     "service_worker": "background.js"
   },
-  "action": {
-    "default_popup": "popup.html"
-  },
   "permissions": ["tabs", "tabGroups"],
   "commands": {
-    "autoArrangeTabs": {
-      "suggested_key": { "default": "Alt+Shift+T" },
-      "description": "Auto arrange all ope tabs by their hostname"
+    "toggle-pin": {
+      "suggested_key": { "default": "Ctrl+Shift+P" },
+      "description": "Pin the current tab"
     }
   },
   "manifest_version": 3
